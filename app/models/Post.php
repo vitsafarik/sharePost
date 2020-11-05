@@ -12,7 +12,7 @@ class Post
     public function getPosts()
     {
         $this->db->query('SELECT *,
-            posts.id as postsId,
+            posts.id as postId,
             users.id as userId,
             posts.created_at as postCreated,
             users.created_at as userCreated
@@ -23,6 +23,16 @@ class Post
         $result = $this->db->resultSet();
 
         return $result;
+    }
+
+    public function getPostById($id)
+    {
+
+        $this->db->query('SELECT * FROM posts WHERE id = :id');
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->single();
+        return $row;
     }
 
     public function addPost($data)
