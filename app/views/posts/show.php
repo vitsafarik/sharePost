@@ -11,11 +11,19 @@
 
 <?php if ($data["post"]->user_id == $_SESSION["user_id"]) : ?>
     <hr>
-    <a href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data["post"]->id ?>" class="btn btn-dark">Edit</a>
 
-    <form action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data["posts"]->id; ?>" method="post" class="pull-right">
-        <input type="submit" class="btn btn-danger">
-    </form>
+    <div class="row">
+        <div class="col">
+            <a href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data["post"]->id ?>" class="btn btn-dark">Edit</a>
+        </div>
+        <div class="col">
+            <form action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data["post"]->id; ?>" method="post" class="pull-right">
+                <input type="submit" class="btn btn-danger" value="Delete">
+            </form>
+        </div>
+    </div>
+
+
 
 <?php endif; ?>
 
